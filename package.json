@@ -77,7 +77,7 @@
     "paths": {
         "app": "./app/",
         "api": "/api",
-        "test": "./app/test/",
+        "test": "./test/",
         "html": "./app/**/*.html",
         "htmltemplates": "./app/**/*.html",
         "vendorjs": [
@@ -87,7 +87,8 @@
             "./vendor/angular-sanitize/angular-sanitize.min.js",
             "./vendor/bootstrap/dist/js/bootstrap.min.js",
             "./vendor/toastr/toastr.min.js",
-            "./vendor/moment/min/moment.min.js"
+            "./vendor/moment/min/moment.min.js",
+            "./vendor/underscore/underscore-min.js"
         ],
         "vendorcss": [
             "./vendor/bootstrap/dist/css/bootstrap.min.css",
@@ -95,8 +96,8 @@
             "./vendor/toastr/toastr.css"
         ],
         "css": [
-            "./src/client/content/customtheme.css",
-            "./src/client/content/styles.css"
+            "./css/customtheme.css",
+            "./css/styles.css"
         ],
         "js": [
             "./app/**/*module*.js",
@@ -107,7 +108,7 @@
             "./vendor/font-awesome/fonts/**/*.*"
         ],
         "images": [
-            "./src/client/content/images/**/*"
+            "./img/**/*"
         ],
         "stage": "./build/stage/",
         "build": "./build/"

@@ -21,8 +21,8 @@ gulp.task('help', plug.taskListing);
 gulp.task('analyze', function() {
     log('Analyzing source with JSHint and JSCS');
 
-    var jshintTests = analyzejshint('./app/test/**/*.spec.js', './app/test/.jshintrc');
-    var jshint = analyzejshint([].concat(pkg.paths.js, '!./app/test/**/*.spec.js'), './.jshintrc');
+    var jshintTests = analyzejshint('./test/**/*.spec.js', './test/.jshintrc');
+    var jshint = analyzejshint([].concat(pkg.paths.js, '!./test/**/*.spec.js'), './.jshintrc');
     var jscs = analyzejscs([].concat(pkg.paths.js), './.jshintrc');
     return merge(jshintTests, jshint, jscs);
 });
@@ -263,7 +263,8 @@ gulp.task('autotest', function (done) {
 });
 
 gulp.task('dev', function() {
-
+    serve({mode: 'dev'});
+    startLivereload('development');
 });
 
 ////////////////
@@ -325,3 +326,62 @@ function serve(args) {
         });
 }
 
+/**
+ * Start Live Reload for a specific environment.
+ * @param  {string} mode
+ * @return {Steram}
+ */
+function startLivereload(mode) {
+    if (!env.liveReload) { return; }
+
+    log('Serving from ' + mode);
+    var path = (env === 'stage' ? [pkg.paths.stage, pkg.paths.client + '/**'] : [pkg.paths.client + '/**']);
+    var options = {auto: true};
+    plug.livereload.listen(options);
+    return gulp.watch(path)
+        .on('change', function(file) {
+            plug.livereload.changed(file.path);
+        });
+}
+
+/**
+ * Start the tests using karma.
+ * @param  {boolean} singleRun - True means run once and end (CI), or keep running (dev)
+ * @param  {Function} done - Callback to fire when karma is done
+ * @return {undefined}
+ */
+function startTests(singleRun, done) {
+    var child;
+    var excludeFiles = ['./app/**/*spaghetti.js'];
+    var spawn = require('child_process').spawn;
+
+    if (env.startServers) {
+        log('Starting servers');
+        var savedEnv = process.env;
+        savedEnv.NODE_ENV = 'dev';
+        savedEnv.PORT = 8888;
+        child = spawn('node', ['src/server/app.js'], {env: savedEnv}, childProcessCompleted);
+    } else {
+        excludeFiles.push('./test/midway/**/*.spec.js');
+    }
+
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        exclude: excludeFiles,
+        singleRun: !!singleRun
+    }, karmaCompleted);
+
+    ////////////////
+    function childProcessCompleted(error, stdout, stderr) {
+        log('stdout: ' + stdout);
+        log('stderr: ' + stderr);
+        if (error !== null) {
+            log('exec error: ' + error);
+        }
+    }
+
+    function karmaCompleted() {
+        if (child) {child.kill();}
+        done();
+    }
+}

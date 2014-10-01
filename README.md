@@ -16,3 +16,5 @@ Runs locally, no database required.
 
 ## Style
 Framework use [style guide](http://github.com/johnpapa/angularjs-styleguide) for syntax, conventions, and structuring AngularJS applications created by [@john_papa](https://twitter.com/john_papa)
+
+## Components
