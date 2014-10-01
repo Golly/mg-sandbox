@@ -146,7 +146,7 @@ gulp.task('rev-and-inject',
         log('Rev\'ing files and building index.html');
 
         var minified = pkg.paths.stage + '**/*.min.*';
-        var index = pkg.paths.client + 'index.html';
+        var index = pkg.paths.index + 'index.html';
         var minFilter = plug.filter(['**/*.min.*', '!**/*.map']);
         var indexFilter = plug.filter(['index.html']);
 

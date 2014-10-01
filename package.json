@@ -75,6 +75,7 @@
         "sinon-chai": "^2.5.0"
     },
     "paths": {
+        "index": "./",
         "app": "./app/",
         "api": "/api",
         "test": "./test/",
