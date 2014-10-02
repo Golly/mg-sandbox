@@ -3,6 +3,9 @@ var gulp = require('gulp');
 var common = require('./gulp/common.js');
 var karma = require('karma').server;
 var merge = require('merge-stream');
+var lrserver = require('tiny-lr')();
+var express = require('express');
+var livereload = require('connect-livereload');
 var pkg = require('./package.json');
 var plug = require('gulp-load-plugins')();
 
@@ -80,6 +83,23 @@ gulp.task('vendorjs', function() {
 });
 
 /**
+ * Compile and bundle the Less
+ * @return {Stream}
+ */
+gulp.task('less', function() {
+    log('Compile less, minifying, and copying the app\'s CSS');
+
+    return gulp.src(pkg.paths.less)
+        .pipe(plug.less())
+        .pipe(plug.concat('all.min.css'))
+        .pipe(plug.autoprefixer('last 2 version', '> 5%'))
+        .pipe(plug.bytediff.start())
+        .pipe(plug.minifyCss({}))
+        .pipe(plug.bytediff.stop(common.bytediffFormatter))
+        .pipe(gulp.dest(pkg.paths.stage + 'css'));
+});
+
+/**
  * Minify and bundle the CSS
  * @return {Stream}
  */
@@ -142,7 +162,7 @@ gulp.task('images', function() {
  * @return {Stream}
  */
 gulp.task('rev-and-inject',
-    ['js', 'vendorjs', 'css', 'vendorcss'], function() {
+    ['js', 'vendorjs', 'less'], function() {
         log('Rev\'ing files and building index.html');
 
         var minified = pkg.paths.stage + '**/*.min.*';
@@ -220,7 +240,7 @@ gulp.task('clean', function() {
 gulp.task('watch', function() {
     log('Watching all files');
 
-    var css = ['gulpfile.js'].concat(pkg.paths.css, pkg.paths.vendorcss);
+    var less = ['gulpfile.js'].concat(pkg.paths.less);
     var images = ['gulpfile.js'].concat(pkg.paths.images);
     var js = ['gulpfile.js'].concat(pkg.paths.js);
 
@@ -229,7 +249,7 @@ gulp.task('watch', function() {
         .on('change', logWatch);
 
     gulp
-        .watch(css, ['css', 'vendorcss'])
+        .watch(less, ['less'])
         .on('change', logWatch);
 
     gulp
@@ -263,8 +283,23 @@ gulp.task('autotest', function (done) {
 });
 
 gulp.task('dev', function() {
-    serve({mode: 'dev'});
-    startLivereload('development');
+    var livereloadport = 35729;
+    var serverport = 5000;
+    var server = express();
+    // Add live reload
+    server.use(livereload({port: livereloadport}));
+    // Set root folder
+    server.use(express.static(pkg.paths.stage));
+    // Because I like HTML5 pushstate .. this redirects everything back to our index.html
+    server.all('/*', function(req, res) {
+        res.sendfile('index.html', { root: pkg.paths.stage });
+    });
+    // Start webserver
+    server.listen(serverport);
+    // Start live reload
+    lrserver.listen(livereloadport);
+    // Run the watch task, to keep taps on changes
+    gulp.run('watch');
 });
 
 ////////////////
