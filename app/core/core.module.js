@@ -5,7 +5,7 @@
         /*
          * Angular modules
          */
-        'ngAnimate', 'ngSanitize'
+        'ngAnimate', 'ngRoute', 'ngSanitize'
         /*
          * Our reusable cross app code modules
          */

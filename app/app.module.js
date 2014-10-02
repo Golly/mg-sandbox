@@ -19,7 +19,6 @@
         /*
          * Feature areas
          */
-        'app.people',
         'app.layout'
     ]);
 
