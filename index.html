@@ -21,9 +21,9 @@
     <link href="/css/styles.css" rel="stylesheet" />
     <!-- endinject -->
 </head>
-<body class="{{ page.bodyClass }}" ng-switch="page.layout" ng-cloak>
+<body class="{{ page.bodyClass }}"  ng-cloak>
 
-    <div ng-switch-when="default" data-ng-include="'app/layout/default.layout.html'"></div>
+    <div data-ng-include="page.getLayout()"></div>
 
     <div id="splash-page" data-ng-show="page.splash">
         <div class="page-splash">

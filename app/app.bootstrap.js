@@ -1,12 +1,12 @@
 (function() {
     'use strict';
 
+    var mainModule = angular.module('app');
+
     /**
      * Set page definition object
      */
-    angular
-        .module('app')
-        .run(setPage);
+    mainModule.run(setPage);
 
     setPage.$inject = ['$rootScope', 'mgPage'];
     function setPage($rootScope, mgPage) {

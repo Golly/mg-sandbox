@@ -15,7 +15,8 @@
             bodyClass: bodyClass,
             title: title,
             splash: splash,
-            setTitle:setTitle
+            setTitle: setTitle,
+            getLayout: getLayout
         };
 
         return service;
@@ -25,6 +26,10 @@
             if (angular.isDefined(tit)) {
                 title = tit;
             }
+        }
+
+        function getLayout() {
+            return 'app/layout/' + layout + '.layout.html';
         }
 
         function _isExplorer() {

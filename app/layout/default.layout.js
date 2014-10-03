@@ -5,13 +5,13 @@
         .module('app.layout')
         .controller('DefaultLayout', DefaultLayout);
 
-    DefaultLayout.$inject = ['$timeout', 'mgPage'];
+    DefaultLayout.$inject = ['$timeout', 'mgPage', 'logger'];
 
-    function DefaultLayout($timeout, mgPage) {
+    function DefaultLayout($timeout, mgPage, logger) {
         /*jshint validthis: true */
         var vm = this;
 
-        vm.title = 'titulek';
+        vm.title = 'mg-framework';
         vm.busyMessage = 'Please wait ...';
         vm.isBusy = true;
 
@@ -30,6 +30,7 @@
             //Force a 1 second delay so we can see the splash.
             $timeout(function() {
                 mgPage.splash = false;
+                logger.success('Loaded!', null);
             }, 1000);
         }
     }
