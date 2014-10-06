@@ -13,14 +13,14 @@
             name: 'people',
             url: '/people',
             abstract: true,
-            templateUrl: 'people.html',
+            templateUrl: 'app/people/people.html',
             controller: 'People'
         };
 
         var peopleList = {
             name: 'people.list',
             url: '',
-            templateUrl: 'people.list.html',
+            templateUrl: 'app/people/people.list.html',
             controller: 'PeopleList'
         };
 

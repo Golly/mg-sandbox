@@ -7,7 +7,7 @@
 
     function mgLayout() {
         var directive = {
-            template: resolveTemplate,
+            templateUrl: resolveTemplate,
             restrict: 'A',
             replace: true
         };
