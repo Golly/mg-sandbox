@@ -1,0 +1,143 @@
+// App layout
+// -------------------------
+html, body, .layout {
+  width: 100%;
+  height: 100%;
+}
+
+.app-content {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  padding-top: @navbar-height;
+}
+
+.app-content-full {
+  position: absolute;
+  top: @navbar-height;
+  bottom: 0;
+  width: auto!important;
+  height: auto;
+  padding: 0!important;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hbox {
+  display: table;
+  width: 100%;
+  height: 100%;
+  border-spacing: 0;
+  table-layout: fixed;
+
+  .col {
+    display: table-cell;
+    float: none;
+    height: 100%;
+    vertical-align: top;
+  }
+}
+
+.vbox {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  border-spacing: 0;
+
+  .row-row {
+    display: table-row;
+    height: 100%;
+
+    .cell {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+
+      .cell-inner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+// App layout helpers
+// -------------------------
+.bg-light {
+  color: #58666e;
+  background-color: #edf1f2;
+
+  .lter {
+    background-color: #f6f8f8;
+  }
+}
+
+.no-bg {
+  background-color: transparent;
+}
+
+.b-light {
+  border-color: #f6f8f8;
+}
+
+.w {
+  width: 200px;
+}
+
+.w-md {
+  width: 240px;
+}
+
+.b-r {
+  border-right: 1px solid #dee5e7;
+}
+
+.b-l {
+  border-left: 1px solid #dee5e7;
+}
+
+.b-b {
+  border-bottom: 1px solid #dee5e7;
+}
+
+.no-border {
+  border-color: transparent;
+  border-width: 0;
+}
+
+.wrapper {
+  padding: 15px;
+}
+
+.wrapper-md {
+  padding: 20px;
+}
+
+.m-r-sm {
+  margin-right: 10px;
+}
+
+.m-t-xs {
+  margin-top: 5px;
+}
+
+.m-l-xs {
+  margin-left: 5px;
+}
+
+.text-muted {
+  color: #939aa0;
+}
+
+.clear {
+  display: block;
+  overflow: hidden;
+}

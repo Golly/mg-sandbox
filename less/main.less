@@ -53,6 +53,28 @@
   color: #ffffff;
 }
 
+// Nav
+// -------------------------
+.nav-pills>li>a {
+  border-radius: 4px;
+  color: #363f44;
+  cursor: pointer;
+  padding: 6px 12px;
+
+  &:hover {
+    background-color: #e4eaec;
+  }
+}
+
+.nav-pills>li.active>a {
+  color: #fff!important;
+  background-color: #23b7e5;
+
+  &:hover {
+    background-color: #19a9d5;
+  }
+}
+
 // Navbar
 // -------------------------
 .navbar-custom {
@@ -62,3 +84,92 @@
 .navbar-inverse .navbar-brand {
   color: #ffffff;
 }
+
+// List group
+// -------------------------
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+}
+
+.list-group.no-borders .list-group-item {
+  border: none;
+}
+
+.list-group.no-bg .list-group-item {
+  background-color: transparent;
+}
+
+.list-group.no-bg .list-group-item h6 {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+// Avatar
+// -------------------------
+.avatar {
+  position: relative;
+  display: block;
+  border-radius: 500px;
+  white-space: nowrap;
+}
+
+.avatar img {
+  border-radius: 500px;
+  width: 100%;
+}
+
+.thumb-xs {
+  width: 30px;
+  display: inline-block;
+}
+
+.thumb img, .thumb-xs img, .thumb-sm img, .thumb-md img, .thumb-lg img, .thumb-btn img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.avatar i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 100%;
+
+  &.sm {
+    margin: -1px;
+  }
+
+  &.right {
+    left: auto;
+    right: 0;
+  }
+
+  &.on {
+    background-color: #1ab667;
+  }
+
+  &.off {
+    background-color: #f05050;
+  }
+}
+
+.masonry-brick {
+  margin: 1em;
+  display: none;
+}
+
+.masonry-brick.loaded {
+  display: block;
+}
+
+
+
+
+

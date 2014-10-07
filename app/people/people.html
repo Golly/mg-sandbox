@@ -1,5 +1,89 @@
-<div class="app-content">
-    <h1>Test people</h1>
+<div class="app-content-full">
+    <div class="hbox bg-light">
+        <div class="col w lter b-r">
+            <div class="vbox">
+                <div class="wrapper b-b">
+                    <h4>Groups</h4>
+                </div>
 
-    <div ui-view></div>
+                <div class="wrapper hidden-sm hidden-xs">
+                    <ul class="nav nav-pills nav-stacked nav-sm">
+                        <li class="active"><a class="new" href="#">All</a></li>
+                        <li><a class="new" href="#">New</a></li>
+                        <li><a class="new" href="#">Trash</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="vbox">
+                <div class="row-row">
+                    <div class="cell">
+                        <div class="cell-inner">
+                            <div class="wrapper-md">
+
+                                <div ui-view></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col w-md lter b-l">
+            <div class="vbox">
+                <div class="wrapper b-b">
+                    <h4>Friends</h4>
+                </div>
+
+                <ul class="list-group no-bg no-borders">
+                    <li class="list-group-item">
+                        <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
+                            <img src="img/a1.png" alt="user"/>
+                            <i class="on b-light right sm"></i>
+                        </span>
+                        <div class="clear">
+                            <h6>Chris Fox</h6>
+                            <small class="text-muted">Praha</small>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
+                            <img src="img/a2.png" alt="user"/>
+                            <i class="on b-light right sm"></i>
+                        </span>
+                        <div class="clear">
+                            <h6>Martin Golan</h6>
+                            <small class="text-muted">Praha</small>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
+                            <img src="img/a3.png" alt="user"/>
+                            <i class="off b-light right sm"></i>
+                        </span>
+                        <div class="clear">
+                            <h6>Jan Novak</h6>
+                            <small class="text-muted">Praha</small>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
+                            <img src="img/a4.png" alt="user"/>
+                            <i class="on b-light right sm"></i>
+                        </span>
+                        <div class="clear">
+                            <h6>Terry Fox</h6>
+                            <small class="text-muted">Praha</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
