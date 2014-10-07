@@ -13,6 +13,6 @@
         /*
          * 3rd Party modules
          */
-        'ui.router', 'wu.masonry'
+        'ui.router'
     ]);
 })();

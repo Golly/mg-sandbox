@@ -28,7 +28,6 @@
     "angular": "v1.3.0-rc.3",
     "angular-animate": "v1.3.0-rc.3",
     "angular-sanitize": "v1.3.0-rc.3",
-    "angular-ui-router": "~0.2.11",
-    "angular-masonry": "~0.9.1"
+    "angular-ui-router": "~0.2.11"
   }
 }
