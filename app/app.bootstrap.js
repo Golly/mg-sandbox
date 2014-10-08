@@ -16,8 +16,9 @@
         $rootScope.$on('$stateChangeSuccess', function(event, state) {
             var data = state.data;
 
-            mgPage.bodyClass = data.bodyClass || '';
-            mgPage.title = data.title || '';
+            mgPage.setTitle(data.title);
+
+            /*mgPage.bodyClass = data.bodyClass || '';*/
         });
 
     }

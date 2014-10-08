@@ -7,13 +7,13 @@
     function mgPage() {
         var layout = 'default';
         var bodyClass = '';
-        var title = '';
+        var title = 'title';
         var splash = true;
 
         var service = {
             layout: layout,
             bodyClass: bodyClass,
-            title: title,
+            getTitle: getTitle,
             splash: splash,
             setTitle: setTitle,
             getLayout: getLayout
@@ -21,6 +21,10 @@
 
         return service;
         ///////////////////
+
+        function getTitle() {
+            return title;
+        }
 
         function setTitle(tit) {
             if (angular.isDefined(tit)) {

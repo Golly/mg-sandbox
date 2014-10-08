@@ -35,7 +35,7 @@
                 }
             },
             data: {
-                title: 'People list'
+                title: 'mg-framework | people list (showcase)'
             }
         };
 
