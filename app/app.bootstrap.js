@@ -4,13 +4,22 @@
     var mainModule = angular.module('app');
 
     /**
-     * Set page definition object
+     * Set page definition object to rootScope
      */
     mainModule.run(setPage);
 
     setPage.$inject = ['$rootScope', 'mgPage'];
     function setPage($rootScope, mgPage) {
         $rootScope.page = mgPage;
+
+        // by default set page data by state
+        $rootScope.$on('$stateChangeSuccess', function(event, state) {
+            var data = state.data;
+
+            mgPage.bodyClass = data.bodyClass || '';
+            mgPage.title = data.title || '';
+        });
+
     }
 
     /**
@@ -22,7 +31,5 @@
     function routerConfig($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
     }
-
-    //mainModule.run(function($state) {});
 
 })();
