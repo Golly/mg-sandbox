@@ -20,8 +20,23 @@
         var peopleList = {
             name: 'people.list',
             url: '',
-            templateUrl: 'app/people/people.list.html',
-            controller: 'PeopleList'
+            views:{
+                '':{
+                    templateUrl: 'app/people/people.list.html',
+                    controller: 'PeopleList'
+                },
+                'leftsidebar':{
+                    templateUrl: 'app/people/people.left.sidebar.html',
+                    controller: 'PeopleLeftSidebar'
+                },
+                'rightsidebar':{
+                    templateUrl: 'app/people/people.right.sidebar.html',
+                    controller: 'PeopleRightSidebar'
+                }
+            },
+            data: {
+                title: 'People list'
+            }
         };
 
         $stateProvider
