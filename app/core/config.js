@@ -13,7 +13,8 @@
 
     var config = {
         appErrorPrefix: '[mgError] ', //Configure the exceptionHandler decorator
-        version: '0.1.0'
+        version: '0.1.0',
+        apiBaseUrl: 'http://mgsandbox.apiary-mock.com'
     };
 
     core.value('config', config);
