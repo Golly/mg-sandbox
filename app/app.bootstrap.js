@@ -33,4 +33,15 @@
         $urlRouterProvider.otherwise('/');
     }
 
+    /**
+     * Configure base url for Restangular
+     */
+    mainModule.config(restangularConfig);
+
+    restangularConfig.$inject = ['RestangularProvider'];
+    function restangularConfig(RestangularProvider)
+    {
+        RestangularProvider.setBaseUrl('http://private-01b8b-mgsandbox.apiary-mock.com/');
+    }
+
 })();

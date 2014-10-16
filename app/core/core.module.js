@@ -5,7 +5,7 @@
         /*
          * Angular modules
          */
-        'ngAnimate', 'ngSanitize',
+        'ngAnimate', 'ngSanitize', 'restangular',
         /*
          * Our reusable cross app code modules
          */
@@ -13,6 +13,6 @@
         /*
          * 3rd Party modules
          */
-        'ui.router'
+        'ui.router',
     ]);
 })();
