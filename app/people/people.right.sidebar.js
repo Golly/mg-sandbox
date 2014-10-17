@@ -11,7 +11,7 @@
 
         /*jshint validthis: true */
         var vm = this;
-        vm.toto = 'test';
+        vm.name = 'Friends';
 
     }
 })();

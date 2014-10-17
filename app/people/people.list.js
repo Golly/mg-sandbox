@@ -5,9 +5,9 @@
         .module('app.people')
         .controller('PeopleList', PeopleList);
 
-    PeopleList.$inject = ['$q', 'Restangular', 'logger'];
+    PeopleList.$inject = ['$q', 'Restangular', 'logger', 'currentGroup'];
 
-    function PeopleList($q, Restangular, logger) {
+    function PeopleList($q, Restangular, logger, currentGroup) {
         var peopleResource = Restangular.all('people');
 
         /*jshint validthis: true */
@@ -18,18 +18,27 @@
         activate();
 
         function activate() {
-            var promises = [getPeople()];
+            var promises = [getPeople(currentGroup)];
 
             return $q.all(promises).then(function() {
                 logger.info('Activated People View');
             });
         }
 
-        function getPeople() {
-            return peopleResource.getList().then(function(data) {
-                vm.people = data;
-                return vm.people;
-            });
+        function getPeople(group) {
+            if (group === 'all') {
+                return peopleResource.getList().then(function(data) {
+                    vm.people = data;
+                    return vm.people;
+                });
+            }
+            else
+            {
+                return peopleResource.getList({group: group}).then(function(data) {
+                    vm.people = data;
+                    return vm.people;
+                });
+            }
         }
     }
 })();
