@@ -1,0 +1,44 @@
+.ngplus-overlay-background {
+  top: 0px;
+  left: 0px;
+  padding-left: 100px;
+  position: absolute;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.6;
+}
+
+.ngplus-overlay-content {
+  position: absolute;
+  /*border: 1px solid #000;*/
+  /*background-color: #fff;*/
+  font-weight: bold;
+  height: 50px;
+  width: 120px;
+  z-index: 10000;
+  text-align: center;
+  background-color: #edf1f2;
+  padding: 10px;
+}
+
+/*Optional Animations*/
+.dissolve-animation.ng-hide-remove,
+.dissolve-animation.ng-hide-add {
+  display: inline !important;
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+
+.dissolve-animation.ng-hide-remove.ng-hide-remove-active,
+.dissolve-animation.ng-hide-add {
+  opacity: 1;
+}
+
+.dissolve-animation.ng-hide-add.ng-hide-add-active,
+.dissolve-animation.ng-hide-remove {
+  opacity: 0;
+}

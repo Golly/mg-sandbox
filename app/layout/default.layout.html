@@ -4,4 +4,12 @@
     </header>
 
     <div class="app-content" ui-view></div>
+
+    <div ngplus-overlay
+         ngplus-overlay-delay-in="50"
+         ngplus-overlay-delay-out="700"
+         ngplus-overlay-animation="dissolve-animation">
+        <img src="img/ajax-loader.gif"/>
+        Loading
+    </div>
 </div>

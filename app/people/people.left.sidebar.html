@@ -4,9 +4,15 @@
 
 <div class="wrapper">
     <ul class="nav nav-pills nav-stacked nav-sm">
-        <li class="active"><a class="new" href="#">All</a></li>
-        <li><a class="new" href="#">New</a></li>
-        <li><a class="new" href="#">Trash</a></li>
+        <li ui-sref-active="active">
+            <a class="new" ui-sref="people.list({ group: 'all' })">All</a>
+        </li>
+        <li ui-sref-active="active">
+            <a class="new" ui-sref="people.list({ group: 'new' })">New</a>
+        </li>
+        <li ui-sref-active="active">
+            <a class="new" ui-sref="people.list({ group: 'trash' })">Trash</a>
+        </li>
     </ul>
 </div>
 

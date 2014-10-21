@@ -9,7 +9,7 @@
         /*
          * Our reusable cross app code modules
          */
-        'blocks.logger',
+        'blocks.logger', 'blocks.overlay',
         /*
          * 3rd Party modules
          */

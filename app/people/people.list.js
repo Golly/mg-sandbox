@@ -21,24 +21,21 @@
             var promises = [getPeople(currentGroup)];
 
             return $q.all(promises).then(function() {
-                logger.info('Activated People View');
+                //logger.info('Activated People View');
             });
         }
 
         function getPeople(group) {
-            if (group === 'all') {
-                return peopleResource.getList().then(function(data) {
-                    vm.people = data;
-                    return vm.people;
-                });
+            var param = {};
+
+            if (group !== 'all') {
+                param.group = group;
             }
-            else
-            {
-                return peopleResource.getList({group: group}).then(function(data) {
-                    vm.people = data;
-                    return vm.people;
-                });
-            }
+
+            return peopleResource.getList(param).then(function(data) {
+                vm.people = data;
+                return vm.people;
+            });
         }
     }
 })();
