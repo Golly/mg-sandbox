@@ -7,7 +7,7 @@
 (function () {
     'use strict';
 
-    var authModule = angular.module('mgAuth');
+    var authModule = angular.module('blocks.auth');
 
     /**
      * @ngdoc service

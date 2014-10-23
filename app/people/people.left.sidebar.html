@@ -1,5 +1,5 @@
 <div class="wrapper b-b">
-    <h4>Groups</h4>
+    <h4>{{ vm.title }}</h4>
 </div>
 
 <div class="wrapper">
@@ -17,7 +17,7 @@
 </div>
 
 <div class="wrapper">
-    <button class="btn btn-primary btn-addon btn-sm">
+    <button class="btn btn-primary btn-addon btn-sm" ng-click="vm.addGroup()">
         <i class="fa fa-plus"></i>
         Add group
     </button>

@@ -9,10 +9,10 @@
         /*
          * Our reusable cross app code modules
          */
-        'blocks.logger', 'blocks.overlay',
+        'blocks.logger', 'blocks.overlay', 'blocks.auth',
         /*
          * 3rd Party modules
          */
-        'ui.router',
+        'ui.router', 'ui.bootstrap'
     ]);
 })();
